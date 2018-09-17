@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8"> 
+<title>AppNet</title>
+<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="style/Grid.css">
+<link rel="stylesheet" type="text/css" href="style/buttons.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/app.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-12" id="landpage">
+        <canvas id="c"></canvas>
+      </div> -->
+    </div>
+    <div  id = "header" class="row ">
+      <div class="col-10 col-offset-1">
+        <div class="header">
+          <h1>基于WordNet语义关系的App和Code分析</h1>
+          <p class="intro">数据来源:<a href="#">&nbsp&nbspGoogle Play & App Store </a>&nbsp&nbsp数据截止2018.05.22</p>
+        </div>
+      </div>
+    </div>
+    <section id="g1">
+      <div class="row">
+        <div class="col-6" id="bubbles">
+          <h1 class=" tipName">出现次数大于{{threshold}}</h1>
+          <input id="threshold" type="range" min="5" max="100" step="10" ng-model="threshold"  ng-change="update()">
+          <h1 class="tipName">{{appName}}</h1>
+        </div>
+        <div class="col-6" id="firms">
+          <div class="box">
+            <div class="container-search">
+              <span class="icon"><i class="fa fa-search"></i></span>
+              <input type="text" id="search" placeholder="输入TAG..."/>
+              <button id="button-search" ng-click="searchNode()" class="button button-primary button-rounded button-small">查询</button>
+            </div>
+          </div>
+          <div class="guide" ng-if="!flag">
+            <p>数据分析包括<span class="yellow">各Tag出现次数</span>及<span class="yellow">基于WordNet的语义关系</span>，通过网络拓扑图连接，表示各节点之间<span class="yellow">相互关系</span></p>
+            <p>点击左侧<span class="yellow">Tag气泡</span>查看详细App信息</p>
+          </div>
+          <div ng-if="flag">
+        	<ul class="firmTitle" ng-if="combinations">
+        		<li>
+          		<strong>
+          		<span>App名称</span>
+          		<span>App编号</span>
+              <span>App类别</span>
+          		<span>App作者</span>
+          		<span>App版本</span>
+          		</strong>
+          	</li>
+        	</ul>
+          <ul class="firmList">
+          	<li ng-repeat="combination in combinations">   
+          		<span>{{combination.date}}</span>
+              <span>{{combination.amount}}</span>
+              <span>{{combination.domain}}</span>
+          		<span>{{combination.round}}</span>  		
+              <span>{{combination.title}}</span>
+          	</li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 扩展部分 -->
+<!--     <section id="g2">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="trend">tag在各类<span class="yellowTrend">App</span>变化趋势</h1>         
+        </div>
+      </div>
+    </section> -->
+<!--     <section id="g3">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="trend"><span class="yellowTrend">各类App</span>数量变化趋势</h1>          
+      </div>
+    </section> -->
+    <section id="footer">
+        <div class="row">
+          <div class="copyright col-12">
+            <h5>© 2018 AppNet</h5>
+          </div>
+        </div>
+    </section>
+  </div>
+</body>
+
+</html>
