@@ -1,0 +1,90 @@
+  ul, li{
+    list-style: none;
+  }
+
+  svg{
+    display: block;
+  }
+  .circle{
+    z-index: 100;
+  }
+  .line{
+    z-index: -100;
+  }
+  #threshold{
+
+    left:10;
+    top:10;
+  }
+  .header h1{
+    font-size: 1.5em;
+    color: rgb(126, 125, 125);
+    margin: 30px 0px;
+  }
+
+  #firms{
+    height:600px;
+    // overflow: scroll;
+    ul li{
+      text-align: left;
+      span{
+        font-size: 0.6em;
+        padding:5px;
+        display: inline-block;
+        width: 18%;
+      }
+    }
+  }
+
+  #lineChart{
+
+  }
+
+  .firmList{
+    height: 500px;
+    overflow: scroll; 
+    li{
+      color: rgb(126, 125, 125);
+      &:hover{
+        background-color: rgb(169, 99, 99);
+        color:rgb(255, 255, 255);
+      }
+    }
+  }
+  .axis {
+    font: 10px sans-serif;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .nodeCircle{
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  /* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,0,0,0.4);
+}
